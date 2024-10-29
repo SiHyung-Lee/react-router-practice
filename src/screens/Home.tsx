@@ -1,6 +1,18 @@
+import { Link } from "react-router-dom";
+import { users } from "../db.ts";
+
 function Home() {
-  const users: any = [];
-  return <h1>{users[0].name}</h1>;
+  return (
+    <div>
+      <ul>
+        {users.map((user) => (
+          <li>
+            <Link to={`/user/${user.id}`}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default Home;
